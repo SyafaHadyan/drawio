@@ -139,7 +139,7 @@
                   "severity": "High",
                   "type": "Spoofing",
                   "description": "Threat actors impersonate legitimate users to gain unauthorized access.",
-                  "mitigation": "",
+                  "mitigation": "- Implement strong multi-factor authentication (MFA) mechanisms to verify user identities\n- Use CAPTCHA to prevent automated attacks\n- Regularly update authentication tokens",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 1,
@@ -147,7 +147,7 @@
                 }
               ],
               "threatFrequency": {
-                "spoofing": 1,
+                "spoofing": 2,
                 "repudiation": 0
               }
             }
@@ -1001,7 +1001,7 @@
                   "severity": "High",
                   "type": "Tampering",
                   "description": "Attackers modify or manipulate stored data.",
-                  "mitigation": "",
+                  "mitigation": "- Use encryption\n- Implement integrity checking\n- Limit access to authorized users only",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 5,
@@ -1009,7 +1009,7 @@
                 }
               ],
               "threatFrequency": {
-                "tampering": 1,
+                "tampering": 2,
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0
@@ -1762,150 +1762,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "HTTP Response",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "2e48d8f6-9ce9-4b84-b0e9-58ba428405c4",
-                  "title": "HTTP Response Manipulation",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "type": "Tampering",
-                  "description": "Attackers manipulate HTTP responses.",
-                  "mitigation": "",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 3,
-                  "score": ""
-                }
-              ],
-              "trustBoundaryIds": [],
-              "threatFrequency": {
-                "tampering": 1,
-                "informationDisclosure": 0,
-                "denialOfService": 0
-              }
-            },
-            "labels": [
-              "HTTP Response"
-            ],
-            "id": "be192490-110c-46a4-95a2-67de233c097e",
-            "source": {
-              "cell": "0909902a-4520-41be-9518-72927fb87c67",
-              "port": "aa85961f-adc3-421c-80ec-5f5569cb3c4b"
-            },
-            "target": {
-              "cell": "a35397ae-7d90-4cf0-8d28-57048b60a2f7",
-              "port": "b59b2d90-46a8-410e-a436-34f16517e9ef"
-            },
-            "vertices": [
-              {
-                "x": 460,
-                "y": 190
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "HTTP Request",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "82829f2c-428a-4b83-871c-d2873e1fbb0a",
-                  "title": "HTTP Request Manipulation",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "type": "Tampering",
-                  "description": "Attackers manipulate HTTP requests",
-                  "mitigation": "",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 2,
-                  "score": ""
-                }
-              ],
-              "trustBoundaryIds": [],
-              "threatFrequency": {
-                "tampering": 2,
-                "informationDisclosure": 0,
-                "denialOfService": 0
-              }
-            },
-            "labels": [
-              "HTTP Request"
-            ],
-            "id": "0eb63ae1-8ca6-4fd8-bf30-38ed0f543b15",
-            "source": {
-              "cell": "a35397ae-7d90-4cf0-8d28-57048b60a2f7",
-              "port": "b59b2d90-46a8-410e-a436-34f16517e9ef"
-            },
-            "target": {
-              "cell": "0909902a-4520-41be-9518-72927fb87c67",
-              "port": "aa85961f-adc3-421c-80ec-5f5569cb3c4b"
-            },
-            "vertices": [
-              {
-                "x": 450,
-                "y": 160
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "Web Transaction Response",
               "description": "",
               "outOfScope": false,
@@ -1954,6 +1810,150 @@
               {
                 "x": 460,
                 "y": 430
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "HTTP Request",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "82829f2c-428a-4b83-871c-d2873e1fbb0a",
+                  "title": "HTTP Request Manipulation",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Attackers manipulate HTTP requests",
+                  "mitigation": "- Implement input validation and output encoding\n- Use web application firewalls (WAFs)\n- Follow secure coding practices",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 3,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "HTTP Request"
+            ],
+            "id": "0eb63ae1-8ca6-4fd8-bf30-38ed0f543b15",
+            "source": {
+              "cell": "a35397ae-7d90-4cf0-8d28-57048b60a2f7",
+              "port": "b59b2d90-46a8-410e-a436-34f16517e9ef"
+            },
+            "target": {
+              "cell": "0909902a-4520-41be-9518-72927fb87c67",
+              "port": "aa85961f-adc3-421c-80ec-5f5569cb3c4b"
+            },
+            "vertices": [
+              {
+                "x": 450,
+                "y": 160
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "HTTP Response",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "2e48d8f6-9ce9-4b84-b0e9-58ba428405c4",
+                  "title": "HTTP Response Manipulation",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Attackers manipulate HTTP responses.",
+                  "mitigation": "- Use encryption for data in transit\n- Avoid sending sensitive data from URL parameters\n- Limit access to authorized user only",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 2,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "HTTP Response"
+            ],
+            "id": "be192490-110c-46a4-95a2-67de233c097e",
+            "source": {
+              "cell": "0909902a-4520-41be-9518-72927fb87c67",
+              "port": "aa85961f-adc3-421c-80ec-5f5569cb3c4b"
+            },
+            "target": {
+              "cell": "a35397ae-7d90-4cf0-8d28-57048b60a2f7",
+              "port": "b59b2d90-46a8-410e-a436-34f16517e9ef"
+            },
+            "vertices": [
+              {
+                "x": 460,
+                "y": 190
               }
             ]
           },
