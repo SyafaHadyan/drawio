@@ -1762,78 +1762,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Web Transaction Response",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "7befefa4-f875-4eeb-87a5-100b524cad28",
-                  "title": "Data Exposed",
-                  "status": "Open",
-                  "severity": "High",
-                  "type": "Information disclosure",
-                  "description": "Sensitive data is intercepted or exposed during transmission.",
-                  "mitigation": "",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 4,
-                  "score": ""
-                }
-              ],
-              "trustBoundaryIds": [],
-              "threatFrequency": {
-                "tampering": 0,
-                "informationDisclosure": 1,
-                "denialOfService": 0
-              }
-            },
-            "labels": [
-              "Web Transaction Response"
-            ],
-            "id": "c2b12a24-2893-4414-a5cc-cd19eb1ddfc3",
-            "source": {
-              "cell": "8a96634f-e891-48fd-a6e1-1140bb58d421",
-              "port": "aa85961f-adc3-421c-80ec-5f5569cb3c4b"
-            },
-            "target": {
-              "cell": "29cf1878-7b1b-4e31-a3c0-a9e6b2fd3e9c",
-              "port": "b59b2d90-46a8-410e-a436-34f16517e9ef"
-            },
-            "vertices": [
-              {
-                "x": 460,
-                "y": 430
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "HTTP Request",
               "description": "",
               "outOfScope": false,
@@ -1954,6 +1882,78 @@
               {
                 "x": 460,
                 "y": 190
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Web Transaction Response",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "7befefa4-f875-4eeb-87a5-100b524cad28",
+                  "title": "Data Exposed",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Sensitive data is intercepted or exposed during transmission.",
+                  "mitigation": "",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 3,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "Web Transaction Response"
+            ],
+            "id": "c2b12a24-2893-4414-a5cc-cd19eb1ddfc3",
+            "source": {
+              "cell": "8a96634f-e891-48fd-a6e1-1140bb58d421",
+              "port": "aa85961f-adc3-421c-80ec-5f5569cb3c4b"
+            },
+            "target": {
+              "cell": "29cf1878-7b1b-4e31-a3c0-a9e6b2fd3e9c",
+              "port": "b59b2d90-46a8-410e-a436-34f16517e9ef"
+            },
+            "vertices": [
+              {
+                "x": 460,
+                "y": 430
               }
             ]
           },
