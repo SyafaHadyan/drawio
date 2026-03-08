@@ -3,7 +3,7 @@
   "summary": {
     "title": "Online Shop",
     "owner": "Syafa Hadyan Rasendriya",
-    "description": "Online Shop Threat Model",
+    "description": "Online Shop Threat Model - Sistem Pembayaran",
     "id": 0
   },
   "detail": {
@@ -16,11 +16,1659 @@
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
         "version": "2.6.0",
-        "cells": []
+        "cells": [
+          {
+            "position": {
+              "x": 50,
+              "y": 250
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "Pengguna"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "port-actor-pengguna-top"
+                },
+                {
+                  "group": "right",
+                  "id": "port-actor-pengguna-right"
+                },
+                {
+                  "group": "bottom",
+                  "id": "port-actor-pengguna-bottom"
+                },
+                {
+                  "group": "left",
+                  "id": "port-actor-pengguna-left"
+                }
+              ]
+            },
+            "id": "actor-pengguna",
+            "data": {
+              "type": "tm.Actor",
+              "name": "Pengguna",
+              "description": "Pengguna (customer) yang melakukan pemesanan produk dan pembayaran di e-commerce",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "providesAuthentication": false,
+              "threats": [
+                {
+                  "id": "threat-01",
+                  "title": "Spoofing Identitas Pengguna",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Penyerang dapat menyamar sebagai pengguna sah dengan mencuri kredensial login (username/password) melalui phishing, credential stuffing, atau brute force attack untuk melakukan transaksi tidak sah.",
+                  "mitigation": "Implementasikan Multi-Factor Authentication (MFA), deteksi login anomali berbasis lokasi dan perangkat, CAPTCHA pada form login, kebijakan password yang kuat, dan rate limiting pada endpoint autentikasi.",
+                  "modelType": "STRIDE"
+                },
+                {
+                  "id": "threat-02",
+                  "title": "Repudiasi Transaksi oleh Pengguna",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Pengguna dapat menyangkal bahwa mereka telah melakukan pemesanan atau pembayaran, sehingga menyebabkan sengketa transaksi dan kerugian finansial bagi merchant.",
+                  "mitigation": "Implementasikan audit logging yang komprehensif dengan timestamp, IP address, device fingerprint, dan digital signature untuk setiap transaksi. Kirimkan konfirmasi transaksi melalui email dan SMS. Simpan log secara immutable (append-only) di secure storage.",
+                  "modelType": "STRIDE"
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 350,
+              "y": 230
+            },
+            "size": {
+              "width": 120,
+              "height": 120
+            },
+            "attrs": {
+              "text": {
+                "text": "E-Commerce\nApplication"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 2,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "port-process-ecommerce-top"
+                },
+                {
+                  "group": "right",
+                  "id": "port-process-ecommerce-right"
+                },
+                {
+                  "group": "bottom",
+                  "id": "port-process-ecommerce-bottom"
+                },
+                {
+                  "group": "left",
+                  "id": "port-process-ecommerce-left"
+                }
+              ]
+            },
+            "id": "process-ecommerce",
+            "data": {
+              "type": "tm.Process",
+              "name": "E-Commerce Application",
+              "description": "Aplikasi e-commerce yang mengelola pemesanan produk, menampilkan opsi pembayaran, memproses permintaan pembayaran, dan mengonfirmasi hasil transaksi ke pengguna",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": true,
+              "handlesGoodsOrServices": true,
+              "isWebApplication": true,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "threat-03",
+                  "title": "Tampering pada Data Pesanan",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Penyerang dapat memanipulasi data pesanan (harga, jumlah, atau detail produk) melalui parameter tampering pada HTTP request sebelum data dikirim ke payment gateway, sehingga membayar lebih murah dari harga seharusnya.",
+                  "mitigation": "Validasi harga dan detail pesanan di sisi server menggunakan data dari database, bukan dari input client. Implementasikan integrity check dengan HMAC pada data transaksi. Gunakan server-side session untuk menyimpan data pesanan.",
+                  "modelType": "STRIDE"
+                },
+                {
+                  "id": "threat-04",
+                  "title": "Elevation of Privilege melalui Kerentanan Aplikasi",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "Penyerang dapat mengeksploitasi kerentanan pada aplikasi e-commerce (SQL Injection, Remote Code Execution, Insecure Deserialization) untuk mendapatkan akses administratif, mengubah status pesanan, atau mengakses data pembayaran pengguna lain.",
+                  "mitigation": "Terapkan prinsip least privilege pada semua komponen aplikasi. Lakukan input validation dan output encoding secara menyeluruh. Gunakan parameterized queries untuk akses database. Lakukan security code review dan penetration testing secara berkala. Terapkan Web Application Firewall (WAF).",
+                  "modelType": "STRIDE"
+                },
+                {
+                  "id": "threat-05",
+                  "title": "Denial of Service pada Aplikasi E-Commerce",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Penyerang dapat membanjiri aplikasi e-commerce dengan request dalam jumlah besar (DDoS/volumetric attack) atau mengirimkan request yang memakan resource tinggi (application-layer DoS) sehingga layanan tidak dapat diakses oleh pengguna sah.",
+                  "mitigation": "Implementasikan rate limiting, load balancing, dan auto-scaling. Gunakan CDN dan DDoS protection service (seperti Cloudflare atau AWS Shield). Terapkan request throttling dan connection timeout yang tepat.",
+                  "modelType": "STRIDE"
+                },
+                {
+                  "id": "threat-06",
+                  "title": "Information Disclosure melalui Error Handling",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Aplikasi e-commerce dapat mengekspos informasi sensitif (stack trace, konfigurasi database, API key) melalui error message yang tidak ditangani dengan baik, sehingga memberikan informasi berguna bagi penyerang untuk melakukan serangan lebih lanjut.",
+                  "mitigation": "Implementasikan custom error pages yang tidak mengekspos detail teknis. Gunakan centralized error handling. Log detail error hanya di sisi server. Nonaktifkan debug mode di lingkungan production.",
+                  "modelType": "STRIDE"
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 650,
+              "y": 230
+            },
+            "size": {
+              "width": 120,
+              "height": 120
+            },
+            "attrs": {
+              "text": {
+                "text": "Payment\nGateway"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 3,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "port-process-pg-top"
+                },
+                {
+                  "group": "right",
+                  "id": "port-process-pg-right"
+                },
+                {
+                  "group": "bottom",
+                  "id": "port-process-pg-bottom"
+                },
+                {
+                  "group": "left",
+                  "id": "port-process-pg-left"
+                }
+              ]
+            },
+            "id": "process-payment-gateway",
+            "data": {
+              "type": "tm.Process",
+              "name": "Payment Gateway",
+              "description": "Payment Gateway yang memproses transaksi pembayaran, meneruskan permintaan pembayaran ke Bank/Penyedia Layanan Keuangan, dan mengembalikan hasil transaksi ke e-commerce",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": true,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "threat-07",
+                  "title": "Spoofing Payment Gateway",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Penyerang dapat membuat payment gateway palsu (fake payment page) melalui DNS hijacking atau phishing untuk mencuri data pembayaran pengguna seperti nomor kartu kredit, CVV, dan kredensial e-wallet.",
+                  "mitigation": "Gunakan TLS/SSL dengan certificate pinning. Verifikasi sertifikat SSL payment gateway. Implementasikan DNSSEC. Gunakan tokenisasi untuk data pembayaran sehingga data kartu asli tidak pernah melewati merchant.",
+                  "modelType": "STRIDE"
+                },
+                {
+                  "id": "threat-08",
+                  "title": "Tampering pada Respons Payment Gateway",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Penyerang dapat melakukan man-in-the-middle attack untuk memodifikasi respons dari payment gateway, misalnya mengubah status pembayaran dari 'failed' menjadi 'success', sehingga pesanan diproses tanpa pembayaran yang sah.",
+                  "mitigation": "Implementasikan digital signature (HMAC-SHA256) pada semua respons payment gateway. Verifikasi signature di sisi server e-commerce. Gunakan webhook dengan secret key untuk notifikasi asinkron. Lakukan reconciliation secara berkala antara data e-commerce dan payment gateway.",
+                  "modelType": "STRIDE"
+                },
+                {
+                  "id": "threat-09",
+                  "title": "Replay Attack pada Transaksi Pembayaran",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Penyerang dapat menangkap dan mengirim ulang (replay) request pembayaran yang valid untuk melakukan transaksi duplikat atau transaksi tidak sah.",
+                  "mitigation": "Implementasikan idempotency key unik untuk setiap transaksi. Gunakan nonce dan timestamp pada setiap request. Tolak request dengan timestamp yang sudah kadaluarsa. Simpan dan validasi idempotency key untuk mencegah pemrosesan duplikat.",
+                  "modelType": "STRIDE"
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 970,
+              "y": 250
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "Bank / Penyedia\nLayanan Keuangan"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 4,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "port-actor-bank-top"
+                },
+                {
+                  "group": "right",
+                  "id": "port-actor-bank-right"
+                },
+                {
+                  "group": "bottom",
+                  "id": "port-actor-bank-bottom"
+                },
+                {
+                  "group": "left",
+                  "id": "port-actor-bank-left"
+                }
+              ]
+            },
+            "id": "actor-bank",
+            "data": {
+              "type": "tm.Actor",
+              "name": "Bank / Penyedia Layanan Keuangan",
+              "description": "Bank atau Penyedia Layanan Keuangan yang memvalidasi dan memproses transaksi pembayaran (kartu kredit, e-wallet, transfer bank)",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "providesAuthentication": true,
+              "threats": [
+                {
+                  "id": "threat-10",
+                  "title": "Spoofing Respons Bank",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Penyerang dapat memalsukan respons dari bank/penyedia layanan keuangan untuk menyetujui transaksi yang seharusnya ditolak, atau menolak transaksi yang sah.",
+                  "mitigation": "Gunakan mutual TLS (mTLS) antara payment gateway dan bank. Verifikasi sertifikat digital bank. Implementasikan message authentication code pada semua komunikasi. Lakukan reconciliation harian antara catatan payment gateway dan bank.",
+                  "modelType": "STRIDE"
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 330,
+              "y": 470
+            },
+            "size": {
+              "width": 160,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Database Pesanan\n& Transaksi"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 5,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "port-store-db-top"
+                },
+                {
+                  "group": "right",
+                  "id": "port-store-db-right"
+                },
+                {
+                  "group": "bottom",
+                  "id": "port-store-db-bottom"
+                },
+                {
+                  "group": "left",
+                  "id": "port-store-db-left"
+                }
+              ]
+            },
+            "id": "store-database",
+            "data": {
+              "type": "tm.Store",
+              "name": "Database Pesanan & Transaksi",
+              "description": "Database yang menyimpan data pesanan, status transaksi, detail pembayaran, dan log audit",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "threat-11",
+                  "title": "Tampering pada Data Database",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Penyerang yang mendapatkan akses ke database (melalui SQL injection atau compromised credentials) dapat memodifikasi data pesanan, mengubah status pembayaran, atau menghapus catatan transaksi.",
+                  "mitigation": "Implementasikan enkripsi data at-rest. Gunakan parameterized queries untuk semua akses database. Terapkan database access control yang ketat dengan prinsip least privilege. Aktifkan audit logging pada database. Gunakan database activity monitoring (DAM).",
+                  "modelType": "STRIDE"
+                },
+                {
+                  "id": "threat-12",
+                  "title": "Information Disclosure - Kebocoran Data Pembayaran",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Data sensitif pembayaran pengguna (nomor kartu kredit, detail bank) yang tersimpan di database dapat bocor melalui unauthorized access, backup yang tidak terenkripsi, atau SQL injection.",
+                  "mitigation": "Jangan menyimpan data kartu kredit secara langsung (gunakan tokenisasi dari payment gateway). Enkripsi semua data sensitif at-rest menggunakan AES-256. Terapkan PCI DSS compliance. Enkripsi backup database. Batasi akses ke database hanya dari application server.",
+                  "modelType": "STRIDE"
+                },
+                {
+                  "id": "threat-13",
+                  "title": "Denial of Service pada Database",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Penyerang dapat melakukan serangan yang menyebabkan database overload melalui query yang resource-intensive atau koneksi database yang berlebihan, sehingga transaksi pembayaran tidak dapat diproses.",
+                  "mitigation": "Implementasikan connection pooling dan query timeout. Gunakan database replication dan failover. Terapkan query optimization dan indexing yang tepat. Monitor performa database dan set alert untuk anomali.",
+                  "modelType": "STRIDE"
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 630,
+              "y": 470
+            },
+            "size": {
+              "width": 160,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Log Audit\nTransaksi"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 6,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "port-store-log-top"
+                },
+                {
+                  "group": "right",
+                  "id": "port-store-log-right"
+                },
+                {
+                  "group": "bottom",
+                  "id": "port-store-log-bottom"
+                },
+                {
+                  "group": "left",
+                  "id": "port-store-log-left"
+                }
+              ]
+            },
+            "id": "store-audit-log",
+            "data": {
+              "type": "tm.Store",
+              "name": "Log Audit Transaksi",
+              "description": "Penyimpanan log audit untuk seluruh aktivitas transaksi pembayaran, digunakan untuk non-repudiation dan forensik",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isALog": true,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "threat-14",
+                  "title": "Tampering pada Audit Log",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Penyerang yang mendapatkan akses ke sistem dapat memodifikasi atau menghapus audit log untuk menutupi jejak aktivitas berbahaya, sehingga menyulitkan investigasi forensik.",
+                  "mitigation": "Simpan log secara append-only (immutable). Gunakan centralized log management (SIEM). Implementasikan digital signature pada setiap log entry. Kirim log secara real-time ke external storage yang terpisah. Terapkan strict access control pada log storage.",
+                  "modelType": "STRIDE"
+                }
+              ]
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Pemesanan Produk &\nDetail Pembayaran",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": {
+                  "distance": 0.5,
+                  "args": {
+                    "keepGradient": true,
+                    "ensureLegibility": true
+                  }
+                }
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Pemesanan Produk & Detail Pembayaran",
+              "description": "Pengguna mengirimkan data pemesanan produk dan memasukkan detail pembayaran (metode pembayaran, informasi kartu/e-wallet/bank) ke aplikasi e-commerce",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "HTTPS",
+              "threats": [
+                {
+                  "id": "threat-15",
+                  "title": "Penyadapan Data Pembayaran (Eavesdropping)",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Penyerang dapat menyadap komunikasi antara browser pengguna dan server e-commerce melalui man-in-the-middle attack (terutama jika pengguna menggunakan jaringan WiFi publik yang tidak aman) untuk mencuri data pembayaran.",
+                  "mitigation": "Gunakan HTTPS dengan TLS 1.3. Implementasikan HSTS (HTTP Strict Transport Security). Gunakan certificate pinning pada aplikasi mobile. Edukasi pengguna untuk tidak bertransaksi di jaringan publik yang tidak aman.",
+                  "modelType": "STRIDE"
+                },
+                {
+                  "id": "threat-16",
+                  "title": "Tampering pada Request Pembayaran",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Penyerang dapat memodifikasi data pembayaran yang dikirim dari pengguna ke e-commerce (misalnya mengubah jumlah pembayaran, mengalihkan rekening tujuan) menggunakan proxy interceptor.",
+                  "mitigation": "Validasi semua data pembayaran di sisi server. Implementasikan integrity check pada request menggunakan HMAC. Gunakan anti-tampering mechanism pada client-side. Terapkan Content Security Policy (CSP).",
+                  "modelType": "STRIDE"
+                }
+              ]
+            },
+            "id": "flow-user-to-ecommerce",
+            "source": {
+              "cell": "actor-pengguna",
+              "port": "port-actor-pengguna-right"
+            },
+            "target": {
+              "cell": "process-ecommerce",
+              "port": "port-process-ecommerce-left"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Konfirmasi Pembayaran\n& Status Pesanan",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": {
+                  "distance": 0.5,
+                  "args": {
+                    "keepGradient": true,
+                    "ensureLegibility": true
+                  }
+                }
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Konfirmasi Pembayaran & Status Pesanan",
+              "description": "E-commerce mengirimkan konfirmasi hasil pembayaran dan memperbarui status pesanan ke pengguna",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "HTTPS",
+              "threats": [
+                {
+                  "id": "threat-17",
+                  "title": "Spoofing Konfirmasi Pembayaran",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "Penyerang dapat mengirimkan konfirmasi pembayaran palsu kepada pengguna (melalui phishing email atau fake notification) untuk menipu pengguna agar percaya bahwa transaksi berhasil atau gagal.",
+                  "mitigation": "Kirimkan konfirmasi melalui channel resmi yang terverifikasi (email dengan DKIM/SPF/DMARC, notifikasi in-app). Sertakan detail unik transaksi yang hanya diketahui oleh pengguna dan sistem. Edukasi pengguna untuk memverifikasi status pesanan langsung di aplikasi.",
+                  "modelType": "STRIDE"
+                }
+              ]
+            },
+            "id": "flow-ecommerce-to-user",
+            "source": {
+              "cell": "process-ecommerce",
+              "port": "port-process-ecommerce-left"
+            },
+            "target": {
+              "cell": "actor-pengguna",
+              "port": "port-actor-pengguna-right"
+            },
+            "vertices": [
+              {
+                "x": 270,
+                "y": 210
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Permintaan\nPembayaran",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": {
+                  "distance": 0.5,
+                  "args": {
+                    "keepGradient": true,
+                    "ensureLegibility": true
+                  }
+                }
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Permintaan Pembayaran",
+              "description": "E-commerce mengirimkan permintaan pemrosesan pembayaran ke Payment Gateway melalui API (termasuk jumlah, mata uang, metode pembayaran, dan token)",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "protocol": "HTTPS/API",
+              "threats": [
+                {
+                  "id": "threat-18",
+                  "title": "Tampering pada API Request ke Payment Gateway",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Penyerang yang telah mengkompromikan server e-commerce atau melakukan MITM pada komunikasi internal dapat memodifikasi permintaan pembayaran yang dikirim ke payment gateway (mengubah jumlah, rekening tujuan).",
+                  "mitigation": "Gunakan API key dan secret yang di-rotate secara berkala. Implementasikan request signing dengan HMAC-SHA256. Gunakan mutual TLS antara e-commerce dan payment gateway. Validasi integritas request di kedua sisi.",
+                  "modelType": "STRIDE"
+                }
+              ]
+            },
+            "id": "flow-ecommerce-to-pg",
+            "source": {
+              "cell": "process-ecommerce",
+              "port": "port-process-ecommerce-right"
+            },
+            "target": {
+              "cell": "process-payment-gateway",
+              "port": "port-process-pg-left"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Hasil Transaksi",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": {
+                  "distance": 0.5,
+                  "args": {
+                    "keepGradient": true,
+                    "ensureLegibility": true
+                  }
+                }
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Hasil Transaksi",
+              "description": "Payment Gateway mengirimkan hasil transaksi (berhasil/gagal, transaction ID, detail) kembali ke e-commerce",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "protocol": "HTTPS/Webhook",
+              "threats": [
+                {
+                  "id": "threat-19",
+                  "title": "Spoofing Webhook Callback",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Penyerang dapat mengirimkan webhook callback palsu ke endpoint e-commerce, memalsukan notifikasi pembayaran berhasil dari payment gateway untuk mendapatkan barang tanpa membayar.",
+                  "mitigation": "Verifikasi signature pada setiap webhook callback menggunakan secret key. Validasi IP address pengirim webhook terhadap whitelist IP payment gateway. Lakukan verifikasi ulang status transaksi ke API payment gateway setelah menerima webhook.",
+                  "modelType": "STRIDE"
+                }
+              ]
+            },
+            "id": "flow-pg-to-ecommerce",
+            "source": {
+              "cell": "process-payment-gateway",
+              "port": "port-process-pg-left"
+            },
+            "target": {
+              "cell": "process-ecommerce",
+              "port": "port-process-ecommerce-right"
+            },
+            "vertices": [
+              {
+                "x": 570,
+                "y": 210
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Permintaan\nValidasi Pembayaran",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": {
+                  "distance": 0.5,
+                  "args": {
+                    "keepGradient": true,
+                    "ensureLegibility": true
+                  }
+                }
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Permintaan Validasi Pembayaran",
+              "description": "Payment Gateway mengirimkan permintaan validasi dan otorisasi pembayaran ke Bank/Penyedia Layanan Keuangan",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "protocol": "ISO 8583/HTTPS",
+              "threats": [
+                {
+                  "id": "threat-20",
+                  "title": "Information Disclosure pada Jaringan Pembayaran",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Data transaksi sensitif yang dikirim antara payment gateway dan bank dapat terekspos jika enkripsi tidak diterapkan dengan benar atau jika ada kerentanan pada protokol komunikasi.",
+                  "mitigation": "Gunakan enkripsi end-to-end pada semua komunikasi. Implementasikan PCI DSS compliance pada seluruh jalur data. Gunakan dedicated secure network (bukan internet publik) untuk komunikasi payment gateway-bank jika memungkinkan. Terapkan HSM (Hardware Security Module) untuk manajemen kunci kriptografi.",
+                  "modelType": "STRIDE"
+                }
+              ]
+            },
+            "id": "flow-pg-to-bank",
+            "source": {
+              "cell": "process-payment-gateway",
+              "port": "port-process-pg-right"
+            },
+            "target": {
+              "cell": "actor-bank",
+              "port": "port-actor-bank-left"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Respons Validasi\nPembayaran",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": {
+                  "distance": 0.5,
+                  "args": {
+                    "keepGradient": true,
+                    "ensureLegibility": true
+                  }
+                }
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Respons Validasi Pembayaran",
+              "description": "Bank/Penyedia Layanan Keuangan mengirimkan respons validasi (approved/declined, authorization code) kembali ke Payment Gateway",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "protocol": "ISO 8583/HTTPS",
+              "threats": []
+            },
+            "id": "flow-bank-to-pg",
+            "source": {
+              "cell": "actor-bank",
+              "port": "port-actor-bank-left"
+            },
+            "target": {
+              "cell": "process-payment-gateway",
+              "port": "port-process-pg-right"
+            },
+            "vertices": [
+              {
+                "x": 870,
+                "y": 210
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Query & Update\nPesanan/Transaksi",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": {
+                  "distance": 0.5,
+                  "args": {
+                    "keepGradient": true,
+                    "ensureLegibility": true
+                  }
+                }
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Query & Update Pesanan/Transaksi",
+              "description": "E-commerce Application membaca dan memperbarui data pesanan serta status transaksi di database",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "SQL/TLS",
+              "threats": [
+                {
+                  "id": "threat-21",
+                  "title": "SQL Injection pada Query Database",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Penyerang dapat menyisipkan perintah SQL berbahaya melalui input yang tidak tervalidasi untuk membaca, memodifikasi, atau menghapus data pesanan dan transaksi di database.",
+                  "mitigation": "Gunakan parameterized queries/prepared statements untuk semua akses database. Terapkan input validation dan sanitization. Gunakan ORM (Object-Relational Mapping). Batasi hak akses database user hanya untuk operasi yang diperlukan.",
+                  "modelType": "STRIDE"
+                }
+              ]
+            },
+            "id": "flow-ecommerce-to-db",
+            "source": {
+              "cell": "process-ecommerce",
+              "port": "port-process-ecommerce-bottom"
+            },
+            "target": {
+              "cell": "store-database",
+              "port": "port-store-db-top"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Write Audit Log",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": {
+                  "distance": 0.5,
+                  "args": {
+                    "keepGradient": true,
+                    "ensureLegibility": true
+                  }
+                }
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Write Audit Log",
+              "description": "Payment Gateway menulis log audit untuk setiap transaksi yang diproses",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "flow-pg-to-log",
+            "source": {
+              "cell": "process-payment-gateway",
+              "port": "port-process-pg-bottom"
+            },
+            "target": {
+              "cell": "store-audit-log",
+              "port": "port-store-log-top"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 20,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Internet / Public Network",
+              "description": "Trust boundary antara pengguna (public internet) dan infrastruktur e-commerce",
+              "isTrustBoundary": true
+            },
+            "id": "boundary-internet",
+            "source": {
+              "x": 260,
+              "y": 150
+            },
+            "target": {
+              "x": 260,
+              "y": 550
+            },
+            "vertices": [
+              {
+                "x": 280,
+                "y": 350
+              }
+            ]
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 20,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "E-Commerce Internal / Payment Network",
+              "description": "Trust boundary antara infrastruktur e-commerce dan jaringan payment gateway/bank",
+              "isTrustBoundary": true
+            },
+            "id": "boundary-payment-network",
+            "source": {
+              "x": 580,
+              "y": 150
+            },
+            "target": {
+              "x": 580,
+              "y": 550
+            },
+            "vertices": [
+              {
+                "x": 600,
+                "y": 350
+              }
+            ]
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 20,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Payment Gateway / Banking Network",
+              "description": "Trust boundary antara payment gateway dan jaringan perbankan",
+              "isTrustBoundary": true
+            },
+            "id": "boundary-banking-network",
+            "source": {
+              "x": 920,
+              "y": 150
+            },
+            "target": {
+              "x": 920,
+              "y": 550
+            },
+            "vertices": [
+              {
+                "x": 940,
+                "y": 350
+              }
+            ]
+          }
+        ]
       }
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 0
+    "threatTop": 21
   }
 }
