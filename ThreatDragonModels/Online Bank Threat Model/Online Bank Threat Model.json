@@ -748,7 +748,7 @@
           },
           {
             "position": {
-              "x": 962,
+              "x": 922,
               "y": 70
             },
             "size": {
@@ -872,7 +872,7 @@
           },
           {
             "position": {
-              "x": 962,
+              "x": 1162,
               "y": 216
             },
             "size": {
@@ -1018,7 +1018,7 @@
           },
           {
             "position": {
-              "x": 962,
+              "x": 1162,
               "y": 377
             },
             "size": {
@@ -1390,7 +1390,7 @@
             },
             "vertices": [
               {
-                "x": 840,
+                "x": 820,
                 "y": 80
               }
             ]
@@ -1442,7 +1442,7 @@
             },
             "vertices": [
               {
-                "x": 840,
+                "x": 820,
                 "y": 120
               }
             ]
@@ -1494,7 +1494,7 @@
             },
             "vertices": [
               {
-                "x": 840,
+                "x": 940,
                 "y": 220
               }
             ]
@@ -1546,7 +1546,7 @@
             },
             "vertices": [
               {
-                "x": 840,
+                "x": 940,
                 "y": 270
               }
             ]
@@ -1650,7 +1650,7 @@
             },
             "vertices": [
               {
-                "x": 830,
+                "x": 930,
                 "y": 380
               }
             ]
@@ -1702,7 +1702,7 @@
             },
             "vertices": [
               {
-                "x": 840,
+                "x": 940,
                 "y": 430
               }
             ]
@@ -1737,40 +1737,6 @@
             "vertices": [
               {
                 "x": 360,
-                "y": 290
-              }
-            ]
-          },
-          {
-            "shape": "trust-boundary-curve",
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Boundary",
-              "name": "Restrricted\nNetwork",
-              "description": "",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false,
-              "crossingFlows": [],
-              "containedElements": []
-            },
-            "labels": [
-              "Restrricted\nNetwork"
-            ],
-            "id": "b9221e92-34cc-4f0c-aa0e-4b009c55d5cd",
-            "source": {
-              "x": 920,
-              "y": 20
-            },
-            "target": {
-              "x": 900,
-              "y": 600
-            },
-            "vertices": [
-              {
-                "x": 940,
                 "y": 290
               }
             ]
@@ -1988,6 +1954,40 @@
               {
                 "x": 460,
                 "y": 430
+              }
+            ]
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 11,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Restrricted\nNetwork",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "Restrricted\nNetwork"
+            ],
+            "id": "b9221e92-34cc-4f0c-aa0e-4b009c55d5cd",
+            "source": {
+              "x": 1120,
+              "y": 20
+            },
+            "target": {
+              "x": 1100,
+              "y": 600
+            },
+            "vertices": [
+              {
+                "x": 1140,
+                "y": 290
               }
             ]
           }
