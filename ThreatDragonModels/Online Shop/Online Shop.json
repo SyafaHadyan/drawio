@@ -478,8 +478,8 @@
                 "text": "Bank / Penyedia\nLayanan Keuangan"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -891,199 +891,7 @@
                   "modelType": "STRIDE"
                 }
               ]
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Permintaan Validasi Pembayaran",
-              "description": "Payment Gateway mengirimkan permintaan validasi dan otorisasi pembayaran ke Bank/Penyedia Layanan Keuangan",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": true,
-              "isPublicNetwork": false,
-              "protocol": "ISO 8583/HTTPS",
-              "threats": [
-                {
-                  "id": "threat-20",
-                  "title": "Information Disclosure pada Jaringan Pembayaran",
-                  "status": "Open",
-                  "severity": "High",
-                  "type": "Information disclosure",
-                  "description": "Data transaksi sensitif yang dikirim antara payment gateway dan bank dapat terekspos jika enkripsi tidak diterapkan dengan benar atau jika ada kerentanan pada protokol komunikasi.",
-                  "mitigation": "Gunakan enkripsi end-to-end pada semua komunikasi. Implementasikan PCI DSS compliance pada seluruh jalur data. Gunakan dedicated secure network (bukan internet publik) untuk komunikasi payment gateway-bank jika memungkinkan. Terapkan HSM (Hardware Security Module) untuk manajemen kunci kriptografi.",
-                  "modelType": "STRIDE"
-                }
-              ],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              {
-                "attrs": {
-                  "label": {
-                    "text": "Data Flow"
-                  },
-                  "labelText": {
-                    "text": "Permintaan\nValidasi Pembayaran",
-                    "textAnchor": "middle",
-                    "textVerticalAnchor": "middle"
-                  },
-                  "labelBody": {
-                    "ref": "labelText",
-                    "refRx": "50%",
-                    "refRy": "60%",
-                    "fill": "#fff",
-                    "strokeWidth": 0
-                  }
-                },
-                "markup": [
-                  {
-                    "tagName": "ellipse",
-                    "selector": "labelBody"
-                  },
-                  {
-                    "tagName": "text",
-                    "selector": "labelText"
-                  }
-                ],
-                "position": {
-                  "distance": 0.5,
-                  "args": {
-                    "keepGradient": true,
-                    "ensureLegibility": true
-                  }
-                }
-              }
-            ],
-            "id": "flow-pg-to-bank",
-            "source": {
-              "cell": "process-payment-gateway",
-              "port": "port-process-pg-right"
-            },
-            "target": {
-              "cell": "actor-bank",
-              "port": "port-actor-bank-left"
-            },
-            "vertices": [
-              {
-                "x": 870,
-                "y": 310
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Respons Validasi Pembayaran",
-              "description": "Bank/Penyedia Layanan Keuangan mengirimkan respons validasi (approved/declined, authorization code) kembali ke Payment Gateway",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": true,
-              "isPublicNetwork": false,
-              "protocol": "ISO 8583/HTTPS",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              {
-                "attrs": {
-                  "label": {
-                    "text": "Data Flow"
-                  },
-                  "labelText": {
-                    "text": "Respons Validasi\nPembayaran",
-                    "textAnchor": "middle",
-                    "textVerticalAnchor": "middle"
-                  },
-                  "labelBody": {
-                    "ref": "labelText",
-                    "refRx": "50%",
-                    "refRy": "60%",
-                    "fill": "#fff",
-                    "strokeWidth": 0
-                  }
-                },
-                "markup": [
-                  {
-                    "tagName": "ellipse",
-                    "selector": "labelBody"
-                  },
-                  {
-                    "tagName": "text",
-                    "selector": "labelText"
-                  }
-                ],
-                "position": {
-                  "distance": 0.5,
-                  "args": {
-                    "keepGradient": true,
-                    "ensureLegibility": true
-                  }
-                }
-              }
-            ],
-            "id": "flow-bank-to-pg",
-            "source": {
-              "cell": "actor-bank",
-              "port": "port-actor-bank-left"
-            },
-            "target": {
-              "cell": "process-payment-gateway",
-              "port": "port-process-pg-right"
-            },
-            "vertices": [
-              {
-                "x": 870,
-                "y": 210
-              }
-            ]
           },
           {
             "shape": "flow",
@@ -1182,87 +990,7 @@
                 "x": 270,
                 "y": 260
               }
-            ],
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            }
+            ]
           },
           {
             "shape": "flow",
@@ -1748,6 +1476,192 @@
             "vertices": []
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Respons Validasi Pembayaran",
+              "description": "Bank/Penyedia Layanan Keuangan mengirimkan respons validasi (approved/declined, authorization code) kembali ke Payment Gateway",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "protocol": "ISO 8583/HTTPS",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "Data Flow"
+                  },
+                  "labelText": {
+                    "text": "Respons Validasi\nPembayaran",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "position": {
+                  "distance": 0.5,
+                  "args": {
+                    "keepGradient": true,
+                    "ensureLegibility": true
+                  }
+                }
+              }
+            ],
+            "id": "flow-bank-to-pg",
+            "source": {
+              "cell": "actor-bank",
+              "port": "port-actor-bank-left"
+            },
+            "target": {
+              "cell": "process-payment-gateway",
+              "port": "port-process-pg-right"
+            },
+            "vertices": [
+              {
+                "x": 870,
+                "y": 210
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Permintaan Validasi Pembayaran",
+              "description": "Payment Gateway mengirimkan permintaan validasi dan otorisasi pembayaran ke Bank/Penyedia Layanan Keuangan",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "protocol": "ISO 8583/HTTPS",
+              "threats": [
+                {
+                  "id": "threat-20",
+                  "title": "Information Disclosure pada Jaringan Pembayaran",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Data transaksi sensitif yang dikirim antara payment gateway dan bank dapat terekspos jika enkripsi tidak diterapkan dengan benar atau jika ada kerentanan pada protokol komunikasi.",
+                  "mitigation": "Gunakan enkripsi end-to-end pada semua komunikasi. Implementasikan PCI DSS compliance pada seluruh jalur data. Gunakan dedicated secure network (bukan internet publik) untuk komunikasi payment gateway-bank jika memungkinkan. Terapkan HSM (Hardware Security Module) untuk manajemen kunci kriptografi.",
+                  "modelType": "STRIDE"
+                }
+              ],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "Data Flow"
+                  },
+                  "labelText": {
+                    "text": "Permintaan\nValidasi Pembayaran",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "position": {
+                  "distance": 0.5,
+                  "args": {
+                    "keepGradient": true,
+                    "ensureLegibility": true
+                  }
+                }
+              }
+            ],
+            "id": "flow-pg-to-bank",
+            "source": {
+              "cell": "process-payment-gateway",
+              "port": "port-process-pg-right"
+            },
+            "target": {
+              "cell": "actor-bank",
+              "port": "port-actor-bank-left"
+            },
+            "vertices": [
+              {
+                "x": 870,
+                "y": 310
+              }
+            ]
+          },
+          {
             "shape": "trust-boundary-curve",
             "width": 200,
             "height": 100,
@@ -1823,7 +1737,7 @@
             "vertices": [
               {
                 "x": 280,
-                "y": 400
+                "y": 360
               }
             ]
           },
@@ -1862,8 +1776,8 @@
             },
             "vertices": [
               {
-                "x": 600,
-                "y": 350
+                "x": 620,
+                "y": 320
               }
             ]
           }
