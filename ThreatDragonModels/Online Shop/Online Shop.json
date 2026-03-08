@@ -139,7 +139,10 @@
                   "type": "Spoofing",
                   "description": "Penyerang dapat menyamar sebagai pengguna sah dengan mencuri kredensial login (username/password) melalui phishing, credential stuffing, atau brute force attack untuk melakukan transaksi tidak sah.",
                   "mitigation": "Implementasikan Multi-Factor Authentication (MFA), deteksi login anomali berbasis lokasi dan perangkat, CAPTCHA pada form login, kebijakan password yang kuat, dan rate limiting pada endpoint autentikasi.",
-                  "modelType": "STRIDE"
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": ""
                 },
                 {
                   "id": "threat-02",
@@ -149,7 +152,10 @@
                   "type": "Repudiation",
                   "description": "Pengguna dapat menyangkal bahwa mereka telah melakukan pemesanan atau pembayaran, sehingga menyebabkan sengketa transaksi dan kerugian finansial bagi merchant.",
                   "mitigation": "Implementasikan audit logging yang komprehensif dengan timestamp, IP address, device fingerprint, dan digital signature untuk setiap transaksi. Kirimkan konfirmasi transaksi melalui email dan SMS. Simpan log secara immutable (append-only) di secure storage.",
-                  "modelType": "STRIDE"
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
                 }
               ]
             }
@@ -279,7 +285,10 @@
                   "type": "Tampering",
                   "description": "Penyerang dapat memanipulasi data pesanan (harga, jumlah, atau detail produk) melalui parameter tampering pada HTTP request sebelum data dikirim ke payment gateway, sehingga membayar lebih murah dari harga seharusnya.",
                   "mitigation": "Validasi harga dan detail pesanan di sisi server menggunakan data dari database, bukan dari input client. Implementasikan integrity check dengan HMAC pada data transaksi. Gunakan server-side session untuk menyimpan data pesanan.",
-                  "modelType": "STRIDE"
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": ""
                 },
                 {
                   "id": "threat-04",
@@ -289,7 +298,10 @@
                   "type": "Elevation of privilege",
                   "description": "Penyerang dapat mengeksploitasi kerentanan pada aplikasi e-commerce (SQL Injection, Remote Code Execution, Insecure Deserialization) untuk mendapatkan akses administratif, mengubah status pesanan, atau mengakses data pembayaran pengguna lain.",
                   "mitigation": "Terapkan prinsip least privilege pada semua komponen aplikasi. Lakukan input validation dan output encoding secara menyeluruh. Gunakan parameterized queries untuk akses database. Lakukan security code review dan penetration testing secara berkala. Terapkan Web Application Firewall (WAF).",
-                  "modelType": "STRIDE"
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": ""
                 },
                 {
                   "id": "threat-05",
@@ -299,7 +311,10 @@
                   "type": "Denial of service",
                   "description": "Penyerang dapat membanjiri aplikasi e-commerce dengan request dalam jumlah besar (DDoS/volumetric attack) atau mengirimkan request yang memakan resource tinggi (application-layer DoS) sehingga layanan tidak dapat diakses oleh pengguna sah.",
                   "mitigation": "Implementasikan rate limiting, load balancing, dan auto-scaling. Gunakan CDN dan DDoS protection service (seperti Cloudflare atau AWS Shield). Terapkan request throttling dan connection timeout yang tepat.",
-                  "modelType": "STRIDE"
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
                 },
                 {
                   "id": "threat-06",
@@ -309,7 +324,10 @@
                   "type": "Information disclosure",
                   "description": "Aplikasi e-commerce dapat mengekspos informasi sensitif (stack trace, konfigurasi database, API key) melalui error message yang tidak ditangani dengan baik, sehingga memberikan informasi berguna bagi penyerang untuk melakukan serangan lebih lanjut.",
                   "mitigation": "Implementasikan custom error pages yang tidak mengekspos detail teknis. Gunakan centralized error handling. Log detail error hanya di sisi server. Nonaktifkan debug mode di lingkungan production.",
-                  "modelType": "STRIDE"
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": ""
                 }
               ]
             }
@@ -439,7 +457,10 @@
                   "type": "Spoofing",
                   "description": "Penyerang dapat membuat payment gateway palsu (fake payment page) melalui DNS hijacking atau phishing untuk mencuri data pembayaran pengguna seperti nomor kartu kredit, CVV, dan kredensial e-wallet.",
                   "mitigation": "Gunakan TLS/SSL dengan certificate pinning. Verifikasi sertifikat SSL payment gateway. Implementasikan DNSSEC. Gunakan tokenisasi untuk data pembayaran sehingga data kartu asli tidak pernah melewati merchant.",
-                  "modelType": "STRIDE"
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": ""
                 },
                 {
                   "id": "threat-08",
@@ -449,7 +470,10 @@
                   "type": "Tampering",
                   "description": "Penyerang dapat melakukan man-in-the-middle attack untuk memodifikasi respons dari payment gateway, misalnya mengubah status pembayaran dari 'failed' menjadi 'success', sehingga pesanan diproses tanpa pembayaran yang sah.",
                   "mitigation": "Implementasikan digital signature (HMAC-SHA256) pada semua respons payment gateway. Verifikasi signature di sisi server e-commerce. Gunakan webhook dengan secret key untuk notifikasi asinkron. Lakukan reconciliation secara berkala antara data e-commerce dan payment gateway.",
-                  "modelType": "STRIDE"
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": ""
                 },
                 {
                   "id": "threat-09",
@@ -459,7 +483,10 @@
                   "type": "Tampering",
                   "description": "Penyerang dapat menangkap dan mengirim ulang (replay) request pembayaran yang valid untuk melakukan transaksi duplikat atau transaksi tidak sah.",
                   "mitigation": "Implementasikan idempotency key unik untuk setiap transaksi. Gunakan nonce dan timestamp pada setiap request. Tolak request dengan timestamp yang sudah kadaluarsa. Simpan dan validasi idempotency key untuk mencegah pemrosesan duplikat.",
-                  "modelType": "STRIDE"
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": ""
                 }
               ]
             }
@@ -586,7 +613,10 @@
                   "type": "Spoofing",
                   "description": "Penyerang dapat memalsukan respons dari bank/penyedia layanan keuangan untuk menyetujui transaksi yang seharusnya ditolak, atau menolak transaksi yang sah.",
                   "mitigation": "Gunakan mutual TLS (mTLS) antara payment gateway dan bank. Verifikasi sertifikat digital bank. Implementasikan message authentication code pada semua komunikasi. Lakukan reconciliation harian antara catatan payment gateway dan bank.",
-                  "modelType": "STRIDE"
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": ""
                 }
               ]
             }
@@ -727,7 +757,10 @@
                   "type": "Tampering",
                   "description": "Penyerang yang mendapatkan akses ke database (melalui SQL injection atau compromised credentials) dapat memodifikasi data pesanan, mengubah status pembayaran, atau menghapus catatan transaksi.",
                   "mitigation": "Implementasikan enkripsi data at-rest. Gunakan parameterized queries untuk semua akses database. Terapkan database access control yang ketat dengan prinsip least privilege. Aktifkan audit logging pada database. Gunakan database activity monitoring (DAM).",
-                  "modelType": "STRIDE"
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": ""
                 },
                 {
                   "id": "threat-12",
@@ -737,7 +770,10 @@
                   "type": "Information disclosure",
                   "description": "Data sensitif pembayaran pengguna (nomor kartu kredit, detail bank) yang tersimpan di database dapat bocor melalui unauthorized access, backup yang tidak terenkripsi, atau SQL injection.",
                   "mitigation": "Jangan menyimpan data kartu kredit secara langsung (gunakan tokenisasi dari payment gateway). Enkripsi semua data sensitif at-rest menggunakan AES-256. Terapkan PCI DSS compliance. Enkripsi backup database. Batasi akses ke database hanya dari application server.",
-                  "modelType": "STRIDE"
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": ""
                 },
                 {
                   "id": "threat-13",
@@ -747,7 +783,10 @@
                   "type": "Denial of service",
                   "description": "Penyerang dapat melakukan serangan yang menyebabkan database overload melalui query yang resource-intensive atau koneksi database yang berlebihan, sehingga transaksi pembayaran tidak dapat diproses.",
                   "mitigation": "Implementasikan connection pooling dan query timeout. Gunakan database replication dan failover. Terapkan query optimization dan indexing yang tepat. Monitor performa database dan set alert untuk anomali.",
-                  "modelType": "STRIDE"
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": ""
                 }
               ]
             }
@@ -888,7 +927,10 @@
                   "type": "Tampering",
                   "description": "Penyerang yang mendapatkan akses ke sistem dapat memodifikasi atau menghapus audit log untuk menutupi jejak aktivitas berbahaya, sehingga menyulitkan investigasi forensik.",
                   "mitigation": "Simpan log secara append-only (immutable). Gunakan centralized log management (SIEM). Implementasikan digital signature pada setiap log entry. Kirim log secara real-time ke external storage yang terpisah. Terapkan strict access control pada log storage.",
-                  "modelType": "STRIDE"
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": ""
                 }
               ]
             }
@@ -933,7 +975,10 @@
                   "type": "Spoofing",
                   "description": "Penyerang dapat mengirimkan konfirmasi pembayaran palsu kepada pengguna (melalui phishing email atau fake notification) untuk menipu pengguna agar percaya bahwa transaksi berhasil atau gagal.",
                   "mitigation": "Kirimkan konfirmasi melalui channel resmi yang terverifikasi (email dengan DKIM/SPF/DMARC, notifikasi in-app). Sertakan detail unik transaksi yang hanya diketahui oleh pengguna dan sistem. Edukasi pengguna untuk memverifikasi status pesanan langsung di aplikasi.",
-                  "modelType": "STRIDE"
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": ""
                 }
               ],
               "trustBoundaryIds": []
@@ -1032,7 +1077,10 @@
                   "type": "Information disclosure",
                   "description": "Penyerang dapat menyadap komunikasi antara browser pengguna dan server e-commerce melalui man-in-the-middle attack (terutama jika pengguna menggunakan jaringan WiFi publik yang tidak aman) untuk mencuri data pembayaran.",
                   "mitigation": "Gunakan HTTPS dengan TLS 1.3. Implementasikan HSTS (HTTP Strict Transport Security). Gunakan certificate pinning pada aplikasi mobile. Edukasi pengguna untuk tidak bertransaksi di jaringan publik yang tidak aman.",
-                  "modelType": "STRIDE"
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": ""
                 },
                 {
                   "id": "threat-16",
@@ -1042,7 +1090,10 @@
                   "type": "Tampering",
                   "description": "Penyerang dapat memodifikasi data pembayaran yang dikirim dari pengguna ke e-commerce (misalnya mengubah jumlah pembayaran, mengalihkan rekening tujuan) menggunakan proxy interceptor.",
                   "mitigation": "Validasi semua data pembayaran di sisi server. Implementasikan integrity check pada request menggunakan HMAC. Gunakan anti-tampering mechanism pada client-side. Terapkan Content Security Policy (CSP).",
-                  "modelType": "STRIDE"
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": ""
                 }
               ],
               "trustBoundaryIds": []
@@ -1141,7 +1192,10 @@
                   "type": "Tampering",
                   "description": "Penyerang dapat menyisipkan perintah SQL berbahaya melalui input yang tidak tervalidasi untuk membaca, memodifikasi, atau menghapus data pesanan dan transaksi di database.",
                   "mitigation": "Gunakan parameterized queries/prepared statements untuk semua akses database. Terapkan input validation dan sanitization. Gunakan ORM (Object-Relational Mapping). Batasi hak akses database user hanya untuk operasi yang diperlukan.",
-                  "modelType": "STRIDE"
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": ""
                 }
               ],
               "trustBoundaryIds": []
@@ -1235,7 +1289,10 @@
                   "type": "Spoofing",
                   "description": "Penyerang dapat mengirimkan webhook callback palsu ke endpoint e-commerce, memalsukan notifikasi pembayaran berhasil dari payment gateway untuk mendapatkan barang tanpa membayar.",
                   "mitigation": "Verifikasi signature pada setiap webhook callback menggunakan secret key. Validasi IP address pengirim webhook terhadap whitelist IP payment gateway. Lakukan verifikasi ulang status transaksi ke API payment gateway setelah menerima webhook.",
-                  "modelType": "STRIDE"
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": ""
                 }
               ],
               "trustBoundaryIds": []
@@ -1334,7 +1391,10 @@
                   "type": "Tampering",
                   "description": "Penyerang yang telah mengkompromikan server e-commerce atau melakukan MITM pada komunikasi internal dapat memodifikasi permintaan pembayaran yang dikirim ke payment gateway (mengubah jumlah, rekening tujuan).",
                   "mitigation": "Gunakan API key dan secret yang di-rotate secara berkala. Implementasikan request signing dengan HMAC-SHA256. Gunakan mutual TLS antara e-commerce dan payment gateway. Validasi integritas request di kedua sisi.",
-                  "modelType": "STRIDE"
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": ""
                 }
               ],
               "trustBoundaryIds": []
@@ -1602,7 +1662,10 @@
                   "type": "Information disclosure",
                   "description": "Data transaksi sensitif yang dikirim antara payment gateway dan bank dapat terekspos jika enkripsi tidak diterapkan dengan benar atau jika ada kerentanan pada protokol komunikasi.",
                   "mitigation": "Gunakan enkripsi end-to-end pada semua komunikasi. Implementasikan PCI DSS compliance pada seluruh jalur data. Gunakan dedicated secure network (bukan internet publik) untuk komunikasi payment gateway-bank jika memungkinkan. Terapkan HSM (Hardware Security Module) untuk manajemen kunci kriptografi.",
-                  "modelType": "STRIDE"
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": ""
                 }
               ],
               "trustBoundaryIds": []
