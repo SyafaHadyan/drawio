@@ -1001,210 +1001,6 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Hasil Transaksi",
-              "description": "Payment Gateway sends transaction results (success/failure, transaction ID, details) back to the e-commerce application",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": true,
-              "isPublicNetwork": false,
-              "protocol": "HTTPS/Webhook",
-              "threats": [
-                {
-                  "id": "threat-19",
-                  "title": "Spoofing",
-                  "status": "Open",
-                  "severity": "High",
-                  "type": "Spoofing",
-                  "description": "An attacker sends a forged HTTP request to the e-commerce endpoint, faking a successful payment notification from the payment gateway.",
-                  "mitigation": "- Verify the digital signature on every request using a hash.\n- Validate the sender's IP address against the payment gateway's IP whitelist.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 19,
-                  "score": ""
-                }
-              ],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              {
-                "attrs": {
-                  "label": {
-                    "text": "Data Flow"
-                  },
-                  "labelText": {
-                    "text": "Hasil Transaksi",
-                    "textAnchor": "middle",
-                    "textVerticalAnchor": "middle"
-                  },
-                  "labelBody": {
-                    "ref": "labelText",
-                    "refRx": "50%",
-                    "refRy": "60%",
-                    "fill": "#fff",
-                    "strokeWidth": 0
-                  }
-                },
-                "markup": [
-                  {
-                    "tagName": "ellipse",
-                    "selector": "labelBody"
-                  },
-                  {
-                    "tagName": "text",
-                    "selector": "labelText"
-                  }
-                ],
-                "position": {
-                  "distance": 0.5,
-                  "args": {
-                    "keepGradient": true,
-                    "ensureLegibility": true
-                  }
-                }
-              }
-            ],
-            "id": "flow-pg-to-ecommerce",
-            "source": {
-              "cell": "process-payment-gateway",
-              "port": "port-process-pg-left"
-            },
-            "target": {
-              "cell": "process-ecommerce",
-              "port": "port-process-ecommerce-right"
-            },
-            "vertices": [
-              {
-                "x": 570,
-                "y": 210
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Permintaan Pembayaran",
-              "description": "E-commerce application sends a payment processing request to the Payment Gateway via API, including amount, currency, payment method, and token",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": true,
-              "isPublicNetwork": false,
-              "protocol": "HTTPS/API",
-              "threats": [
-                {
-                  "id": "threat-18",
-                  "title": "API Request Tampering",
-                  "status": "Open",
-                  "severity": "High",
-                  "type": "Tampering",
-                  "description": "An attacker who has compromised the e-commerce server or is performing a man-in-the-middle attack on internal communications modifies payment requests sent to the payment gateway.",
-                  "mitigation": "- Use API keys and secrets with regular rotation schedules.\n- Implement request signing with a hash.\n- Validate request integrity on both ends.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 18,
-                  "score": ""
-                }
-              ],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              {
-                "attrs": {
-                  "label": {
-                    "text": "Data Flow"
-                  },
-                  "labelText": {
-                    "text": "Permintaan\nPembayaran",
-                    "textAnchor": "middle",
-                    "textVerticalAnchor": "middle"
-                  },
-                  "labelBody": {
-                    "ref": "labelText",
-                    "refRx": "50%",
-                    "refRy": "60%",
-                    "fill": "#fff",
-                    "strokeWidth": 0
-                  }
-                },
-                "markup": [
-                  {
-                    "tagName": "ellipse",
-                    "selector": "labelBody"
-                  },
-                  {
-                    "tagName": "text",
-                    "selector": "labelText"
-                  }
-                ],
-                "position": {
-                  "distance": 0.5,
-                  "args": {
-                    "keepGradient": true,
-                    "ensureLegibility": true
-                  }
-                }
-              }
-            ],
-            "id": "flow-ecommerce-to-pg",
-            "source": {
-              "cell": "process-ecommerce",
-              "port": "port-process-ecommerce-right"
-            },
-            "target": {
-              "cell": "process-payment-gateway",
-              "port": "port-process-pg-left"
-            },
-            "vertices": [
-              {
-                "x": 560,
-                "y": 320
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
                 "stroke": "#333333",
                 "targetMarker": {
                   "name": "block"
@@ -1287,195 +1083,6 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Respons Validasi Pembayaran",
-              "description": "Bank/financial service provider sends a payment validation response (approved/declined, authorization code) back to the Payment Gateway",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": true,
-              "isPublicNetwork": false,
-              "protocol": "ISO 8583/HTTPS",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              {
-                "attrs": {
-                  "label": {
-                    "text": "Data Flow"
-                  },
-                  "labelText": {
-                    "text": "Respons Validasi\nPembayaran",
-                    "textAnchor": "middle",
-                    "textVerticalAnchor": "middle"
-                  },
-                  "labelBody": {
-                    "ref": "labelText",
-                    "refRx": "50%",
-                    "refRy": "60%",
-                    "fill": "#fff",
-                    "strokeWidth": 0
-                  }
-                },
-                "markup": [
-                  {
-                    "tagName": "ellipse",
-                    "selector": "labelBody"
-                  },
-                  {
-                    "tagName": "text",
-                    "selector": "labelText"
-                  }
-                ],
-                "position": {
-                  "distance": 0.5,
-                  "args": {
-                    "keepGradient": true,
-                    "ensureLegibility": true
-                  }
-                }
-              }
-            ],
-            "id": "flow-bank-to-pg",
-            "source": {
-              "cell": "actor-bank",
-              "port": "port-actor-bank-left"
-            },
-            "target": {
-              "cell": "process-payment-gateway",
-              "port": "port-process-pg-right"
-            },
-            "vertices": [
-              {
-                "x": 870,
-                "y": 210
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Permintaan Validasi Pembayaran",
-              "description": "Payment Gateway sends a payment validation and authorization request to the Bank/financial service provider",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": true,
-              "isPublicNetwork": false,
-              "protocol": "ISO 8583/HTTPS",
-              "threats": [
-                {
-                  "id": "threat-20",
-                  "title": "Information Disclosure",
-                  "status": "Open",
-                  "severity": "High",
-                  "type": "Information disclosure",
-                  "description": "Sensitive transaction data transmitted between the payment gateway and the bank is exposed due to improperly configured encryption or vulnerabilities in the communication protocol.",
-                  "mitigation": "- Enforce end-to-end encryption on all communications.\n- Use a dedicated secure network for payment gateway-to-bank communication.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 20,
-                  "score": ""
-                }
-              ],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              {
-                "attrs": {
-                  "label": {
-                    "text": "Data Flow"
-                  },
-                  "labelText": {
-                    "text": "Permintaan\nValidasi Pembayaran",
-                    "textAnchor": "middle",
-                    "textVerticalAnchor": "middle"
-                  },
-                  "labelBody": {
-                    "ref": "labelText",
-                    "refRx": "50%",
-                    "refRy": "60%",
-                    "fill": "#fff",
-                    "strokeWidth": 0
-                  }
-                },
-                "markup": [
-                  {
-                    "tagName": "ellipse",
-                    "selector": "labelBody"
-                  },
-                  {
-                    "tagName": "text",
-                    "selector": "labelText"
-                  }
-                ],
-                "position": {
-                  "distance": 0.5,
-                  "args": {
-                    "keepGradient": true,
-                    "ensureLegibility": true
-                  }
-                }
-              }
-            ],
-            "id": "flow-pg-to-bank",
-            "source": {
-              "cell": "process-payment-gateway",
-              "port": "port-process-pg-right"
-            },
-            "target": {
-              "cell": "actor-bank",
-              "port": "port-actor-bank-left"
-            },
-            "vertices": [
-              {
-                "x": 870,
-                "y": 310
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
                 "stroke": "red",
                 "strokeWidth": 2.5,
                 "targetMarker": {
@@ -1536,6 +1143,207 @@
               {
                 "x": 270,
                 "y": 260
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Transaction\nResult",
+              "description": "Payment Gateway sends transaction results (success/failure, transaction ID, details) back to the e-commerce application",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "protocol": "HTTPS/Webhook",
+              "threats": [
+                {
+                  "id": "threat-19",
+                  "title": "Spoofing",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "An attacker sends a forged HTTP request to the e-commerce endpoint, faking a successful payment notification from the payment gateway.",
+                  "mitigation": "- Verify the digital signature on every request using a hash.\n- Validate the sender's IP address against the payment gateway's IP whitelist.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Transaction\nResult"
+            ],
+            "id": "flow-pg-to-ecommerce",
+            "source": {
+              "cell": "process-payment-gateway",
+              "port": "port-process-pg-left"
+            },
+            "target": {
+              "cell": "process-ecommerce",
+              "port": "port-process-ecommerce-right"
+            },
+            "vertices": [
+              {
+                "x": 570,
+                "y": 210
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Payment\nRequest",
+              "description": "E-commerce application sends a payment processing request to the Payment Gateway via API, including amount, currency, payment method, and token",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "protocol": "HTTPS/API",
+              "threats": [
+                {
+                  "id": "threat-18",
+                  "title": "API Request Tampering",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "An attacker who has compromised the e-commerce server or is performing a man-in-the-middle attack on internal communications modifies payment requests sent to the payment gateway.",
+                  "mitigation": "- Use API keys and secrets with regular rotation schedules.\n- Implement request signing with a hash.\n- Validate request integrity on both ends.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Payment\nRequest"
+            ],
+            "id": "flow-ecommerce-to-pg",
+            "source": {
+              "cell": "process-ecommerce",
+              "port": "port-process-ecommerce-right"
+            },
+            "target": {
+              "cell": "process-payment-gateway",
+              "port": "port-process-pg-left"
+            },
+            "vertices": [
+              {
+                "x": 560,
+                "y": 320
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Request and Validate\nPayment",
+              "description": "Payment Gateway sends a payment validation and authorization request to the Bank/financial service provider",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "protocol": "ISO 8583/HTTPS",
+              "threats": [
+                {
+                  "id": "threat-20",
+                  "title": "Information Disclosure",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Sensitive transaction data transmitted between the payment gateway and the bank is exposed due to improperly configured encryption or vulnerabilities in the communication protocol.",
+                  "mitigation": "- Enforce end-to-end encryption on all communications.\n- Use a dedicated secure network for payment gateway-to-bank communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Request and Validate\nPayment"
+            ],
+            "id": "flow-pg-to-bank",
+            "source": {
+              "cell": "process-payment-gateway",
+              "port": "port-process-pg-right"
+            },
+            "target": {
+              "cell": "actor-bank",
+              "port": "port-actor-bank-left"
+            },
+            "vertices": [
+              {
+                "x": 870,
+                "y": 310
               }
             ]
           },
@@ -1732,12 +1540,6 @@
               "cell": "process-ecommerce",
               "port": "port-process-ecommerce-left"
             },
-            "vertices": [
-              {
-                "x": 270,
-                "y": 310
-              }
-            ],
             "tools": {
               "items": [
                 "boundary",
@@ -1750,6 +1552,169 @@
                 "vertices",
                 "source-arrowhead",
                 "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            },
+            "vertices": [
+              {
+                "x": 270,
+                "y": 310
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 22,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Respons Validasi Pembayaran",
+              "description": "Bank/financial service provider sends a payment validation response (approved/declined, authorization code) back to the Payment Gateway",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "protocol": "ISO 8583/HTTPS",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "Data Flow"
+                  },
+                  "labelText": {
+                    "text": "Respons Validasi\nPembayaran",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "position": {
+                  "distance": 0.5,
+                  "args": {
+                    "keepGradient": true,
+                    "ensureLegibility": true
+                  }
+                }
+              }
+            ],
+            "id": "flow-bank-to-pg",
+            "source": {
+              "cell": "actor-bank",
+              "port": "port-actor-bank-left"
+            },
+            "target": {
+              "cell": "process-payment-gateway",
+              "port": "port-process-pg-right"
+            },
+            "vertices": [
+              {
+                "x": 870,
+                "y": 210
+              }
+            ],
+            "tools": {
+              "items": [
                 "boundary",
                 "button-remove",
                 "vertices",
