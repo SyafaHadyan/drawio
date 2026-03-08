@@ -1488,7 +1488,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Order & Payment Detail",
+              "name": "Order and\nPayment Detail",
               "description": "User submits product order data and enters payment details (payment method, card/e-wallet/bank information) to the e-commerce application",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -1529,7 +1529,7 @@
               "trustBoundaryIds": []
             },
             "labels": [
-              "Order & Payment Detail"
+              "Order and\nPayment Detail"
             ],
             "id": "flow-user-to-ecommerce",
             "source": {
@@ -1539,86 +1539,6 @@
             "target": {
               "cell": "process-ecommerce",
               "port": "port-process-ecommerce-left"
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
             },
             "vertices": [
               {
@@ -1707,12 +1627,6 @@
               "cell": "process-payment-gateway",
               "port": "port-process-pg-right"
             },
-            "vertices": [
-              {
-                "x": 870,
-                "y": 210
-              }
-            ],
             "tools": {
               "items": [
                 "boundary",
@@ -1782,7 +1696,13 @@
                 "target-arrowhead"
               ],
               "name": null
-            }
+            },
+            "vertices": [
+              {
+                "x": 870,
+                "y": 210
+              }
+            ]
           }
         ]
       }
